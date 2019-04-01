@@ -1,9 +1,9 @@
 class college{
 	protected:
-    string college_name;
-    int college_code;
+    string c_n;
+    int c_c;
     public:
-    college(string cn,int cd,int pref){
+    college(string cn,int cd){
         c_n = cn;
         c_c = cd;
     }
