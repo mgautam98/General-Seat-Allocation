@@ -11,7 +11,7 @@ class studentRecord{
 
     void Display_Student(){
         in.open(fileName.c_str(), ios::binary);
-        while(in.read((char*)&student), sizeof(student));{
+        while(in.read((char*)&student, sizeof(student))){
             student.Display();
         }
         in.close();
@@ -24,4 +24,4 @@ class studentRecord{
         out.close();
     }
 
-}
+};

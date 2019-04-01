@@ -11,7 +11,7 @@ class seatRecord{
 
     void Display_Seat(){
         in.open(fileName.c_str(), ios::binary);
-        while(in.read((char*)&seat), sizeof(seat));{
+        while(in.read((char*)&seat), sizeof(seat))){
             seat.Display();
         }
         in.close();
@@ -24,4 +24,4 @@ class seatRecord{
         out.close();
     }
 
-}
+};
