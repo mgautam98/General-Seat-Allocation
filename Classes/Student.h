@@ -14,6 +14,7 @@ class Name{
 			cout<<fiNam<<" "<<lName;
 		}
 };
+
 class DOB{
 	protected:
 		string day;
@@ -34,6 +35,7 @@ class DOB{
 			cout<<day<<"/"<<month<<"/"<<year;
 		}
 };
+
 class Student
 {
 	protected:
@@ -62,34 +64,34 @@ class Student
 
 			cout<<"\t\tState of Eligibility:";
 			cin>>state;
-			
+
             cout<<"\t\tCategory:";
 			cin >> category;
-			
+
 			cout<<"\t\tAIR:";
 			cin >> air;
-			
+
 			cout<<"\t\tCategory Rank:";
 			cin >> categoryrank;
 
 			cout<<"\t\tEnter Gender:";
   			cin>>gender;
-					
-			cout<<"\t\tDOB:\n"; 
+
+			cout<<"\t\tDOB:\n";
 			dob.getuDate();
 
 			cout<<"\t\tEnter Email:";
 			cin>>email;
-			
+
 			cout<<"\t\tEnter Mobile:";
 			cin>>mobile;
-			
+
 			cout<<"\n\t\tFather Name:"<<endl;
 			fatherName.getName();
-			
+
 			cout<<"\t\tMother Name:"<<endl;
   			motherName.getName();
-			
+
 			cout<<"\t||---------------------------------------------------------||"<<endl;
 		}
 		void Display()
@@ -119,7 +121,7 @@ class Student
 						cout<<"\t\t\t   Mobile:\t\t"<<mobile<<endl;
 						cout<<"\t||-----------------------------------------------------------||"<<endl;
 		}
-		long long int getRoll(){
+		long long int getEnrollment(){
 			return stoi(roll);
 		}
 };
