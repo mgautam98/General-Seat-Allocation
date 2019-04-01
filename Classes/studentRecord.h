@@ -75,7 +75,7 @@ class studentRecord
 		{
 			if (student.getEnrollment() == n)
 			{
-				student.Display_data();
+				student.Display();
 				long long int pos = -1 * sizeof(student);
 				finout.seekp(pos, ios::cur);
 				cout << "\n\n\n\n\n\n\n\n\n\n\n";
@@ -83,7 +83,7 @@ class studentRecord
 				cout << "\t\t     Enter the new details of Student\n";
 				cout << "\t\t||------------------------------------------------||\n";
 				cout << "\n\n";
-				student.Enter_data();
+				student.Enter();
 				finout.write((char *)&student, sizeof(student));
 			}
 		}
