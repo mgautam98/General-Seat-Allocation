@@ -21,11 +21,11 @@ void displayMain()
 			student.Enter_Student();
 			break;
 		}
-		// case 2:
-		// {
-		// 	student.Display_Student();
-		// 	break;
-		// }
+		case 2:
+		{
+			student.Display_Student();
+			break;
+		}
 		case 0:
 			exit(0);
 		default:
