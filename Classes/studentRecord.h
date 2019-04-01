@@ -1,90 +1,92 @@
 
-class studentRecord{
-    protected:
-    ofstream out;
-    ifstream in;
-    fstream finout;
-    Student student;
-    string fileName = "Records/Student.dat";
+class studentRecord
+{
+  protected:
+	ofstream out;
+	ifstream in;
+	fstream finout;
+	Student student;
+	string fileName = "Records/Student.dat";
 
-    public:
-
-    void Display_Student(){
-        in.open(fileName.c_str(), ios::binary);
-        while(in.read((char*)&student, sizeof(student))){
-            student.Display();
-        }
-        in.close();
-    }
-
-    void Enter_Student(){
-        out.open(fileName.c_str(),ios::binary | ios::app);
-        student.Enter();
-        out.write((char*)&student, sizeof(student));
-        out.close();
-    }
-
-    void Find_Student(long long int n)
+  public:
+	void Display_Student()
+	{
+		in.open(fileName.c_str(), ios::binary);
+		while (in.read((char *)&student, sizeof(student)))
 		{
-		  in.open(fileName.c_str(), ios::binary);
-			int found=0;
-	    while(in.read((char*)&student, sizeof(student)))
-	    {
-	        if(student.getEnrollment() == n)
-	        {
-	            student.Display();
-				      found=1;
-	        }
-	    }
+			student.Display();
+		}
+		in.close();
+	}
 
-		  if(found==0)
+	void Enter_Student()
+	{
+		out.open(fileName.c_str(), ios::binary | ios::app);
+		student.Enter();
+		out.write((char *)&student, sizeof(student));
+		out.close();
+	}
+
+	void Find_Student(long long int n)
+	{
+		in.open(fileName.c_str(), ios::binary);
+		int found = 0;
+		while (in.read((char *)&student, sizeof(student)))
+		{
+			if (student.getEnrollment() == n)
 			{
-		    cout<<"\n\n\n\n\n\n\n\n\n\n\n";
-				cout<<"\t\t||------------------------------------------------||\n";
-				cout<<"\t\t\t     Student Not Found!\n";
-				cout<<"\t\t||------------------------------------------------||\n";
+				student.Display();
+				found = 1;
 			}
-		  in.close();
 		}
 
-
-		void Delete_Student(long long int n)
+		if (found == 0)
 		{
-	    in.open(fileName.c_str(), ios::binary);
-	    out.open("Records/Temp.dat", ios::out | ios::binary);
-	    while(in.read((char*)&student, sizeof(student)))
-	    {
-	        if(student.getEnrollment()!= n)
-	        {
-	            out.write((char*)&student, sizeof(student));
-	        }
-	    }
-			in.close();
-		    out.close();
-			remove(fileName.c_str());
-			rename("Records/Temp.dat",fileName.c_str());
+			cout << "\n\n\n\n\n\n\n\n\n\n\n";
+			cout << "\t\t||------------------------------------------------||\n";
+			cout << "\t\t\t     Student Not Found!\n";
+			cout << "\t\t||------------------------------------------------||\n";
 		}
+		in.close();
+	}
 
-		void Update_Student(long long int n)
+	void Delete_Student(long long int n)
+	{
+		in.open(fileName.c_str(), ios::binary);
+		out.open("Records/Temp.dat", ios::out | ios::binary);
+		while (in.read((char *)&student, sizeof(student)))
 		{
-		    finout.open(fileName.c_str(),ios::binary|ios::in | ios::out);
-		    int found=0;
-			while(finout.read((char*)&student, sizeof(student)))
-		    {
-		      if(student.getEnrollment()==n)
-		       {
-		            student.Display_data();
-		          	long long  int pos = -1 * sizeof(student);
-		            finout.seekp(pos, ios::cur);
-		            cout<<"\n\n\n\n\n\n\n\n\n\n\n";
-					cout<<"\t\t||------------------------------------------------||\n";
-					cout<<"\t\t     Enter the new details of Student\n";
-					cout<<"\t\t||------------------------------------------------||\n";
-		            cout << "\n\n";
-					student.Enter_data();
-		            finout.write((char*)&student, sizeof(student));
-		        }
+			if (student.getEnrollment() != n)
+			{
+				out.write((char *)&student, sizeof(student));
 			}
-			finout.close();
 		}
+		in.close();
+		out.close();
+		remove(fileName.c_str());
+		rename("Records/Temp.dat", fileName.c_str());
+	}
+
+	void Update_Student(long long int n)
+	{
+		finout.open(fileName.c_str(), ios::binary | ios::in | ios::out);
+		int found = 0;
+		while (finout.read((char *)&student, sizeof(student)))
+		{
+			if (student.getEnrollment() == n)
+			{
+				student.Display_data();
+				long long int pos = -1 * sizeof(student);
+				finout.seekp(pos, ios::cur);
+				cout << "\n\n\n\n\n\n\n\n\n\n\n";
+				cout << "\t\t||------------------------------------------------||\n";
+				cout << "\t\t     Enter the new details of Student\n";
+				cout << "\t\t||------------------------------------------------||\n";
+				cout << "\n\n";
+				student.Enter_data();
+				finout.write((char *)&student, sizeof(student));
+			}
+		}
+		finout.close();
+	}
 };
