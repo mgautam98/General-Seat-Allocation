@@ -19,7 +19,7 @@ class studentRecord{
 
     void Enter_Student(){
         out.open(fileName.c_str(),ios::binary | ios::app);
-        student.Enter_Book();
+        student.Enter();
         out.write((char*)&student, sizeof(student));
         out.close();
     }
