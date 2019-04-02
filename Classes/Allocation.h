@@ -23,18 +23,21 @@ class EligibleStudent
     }
 };
 
-class AvailableProgram{
-    public:
+class AvailableProgram
+{
+  public:
     int capacity;
     int programID;
     bool Engaged;
     EligibleStudent allotedStudent;
 
-    AvailableProgram(){
+    AvailableProgram()
+    {
         Engaged = false;
     }
 
-    AvailableProgram(string proID, int cap){
+    AvailableProgram(string proID, int cap)
+    {
         capacity = cap;
         programID = stoi(proID);
     }
@@ -48,11 +51,11 @@ void ReadStudents()
     ifstream in;
     Student student;
     string StudentfileName = "Records/Student.dat";
-    in.open(StudentfileName.c_str(), ios::binary);
+    in.open(StudentfileName.c_str());
     while (in.read((char *)&student, sizeof(student)))
     {
         EligibleStudent newStudent(student.roll, student.air, student.category, student.preference);
-        EligibleStudents[stoi(student.roll)] = newStudent;
+        EligibleStudents[newStudent.AIR] = newStudent;
     }
     in.close();
 }
@@ -62,24 +65,26 @@ void ReadPrograms()
     ifstream in;
     Program program;
     string fileName = "Records/Program.dat";
-    in.open(fileName.c_str(), ios::binary);
+    in.open(fileName.c_str());
     while (in.read((char *)&program, sizeof(program)))
     {
         AvailableProgram newProgram(program.program_code, program.Capacity);
-        AvailablePrograms[stoi(program.program_code)] = newProgram;
+        AvailablePrograms[newProgram.programID] = newProgram;
     }
     in.close();
 }
 
-void RunAlgorithm(){
-    for(auto i: EligibleStudents){
-        cout<<"HERE";
+void RunAlgorithm()
+{
+    for (auto i : EligibleStudents)
+    {
+        cout << "HERE";
     }
 }
 
 void Allocate()
 {
     ReadStudents();
-    ReadPrograms();
+    // ReadPrograms();
     // RunAlgorithm();
 }

@@ -47,6 +47,7 @@ void login()
 			}
 			case 4:
 			{
+				student.AddPreferences(roll);
 				break;
 			}
 			

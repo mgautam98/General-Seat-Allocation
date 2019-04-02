@@ -11,7 +11,7 @@ class studentRecord
   public:
 	void Display_Student()
 	{
-		in.open(fileName.c_str(), ios::binary);
+		in.open(fileName.c_str());
 		while (in.read((char *)&student, sizeof(student)))
 		{
 			student.Display();
@@ -21,7 +21,7 @@ class studentRecord
 
 	void Enter_Student()
 	{
-		out.open(fileName.c_str(), ios::binary | ios::app);
+		out.open(fileName.c_str(), ios::app);
 		student.Enter();
 		out.write((char *)&student, sizeof(student));
 		out.close();
@@ -29,7 +29,7 @@ class studentRecord
 
 	void Find_Student(long long int n)
 	{
-		in.open(fileName.c_str(), ios::binary);
+		in.open(fileName.c_str());
 		int found = 0;
 		while (in.read((char *)&student, sizeof(student)))
 		{
@@ -52,8 +52,8 @@ class studentRecord
 
 	void Delete_Student(long long int n)
 	{
-		in.open(fileName.c_str(), ios::binary);
-		out.open("Records/Temp.dat", ios::out | ios::binary);
+		in.open(fileName.c_str());
+		out.open("Records/Temp.dat", ios::out);
 		while (in.read((char *)&student, sizeof(student)))
 		{
 			if (student.getEnrollment() != n)
@@ -69,7 +69,7 @@ class studentRecord
 
 	void Update_Student(long long int n)
 	{
-		finout.open(fileName.c_str(), ios::binary | ios::in | ios::out);
+		finout.open(fileName.c_str(), ios::in | ios::out);
 		int found = 0;
 		while (finout.read((char *)&student, sizeof(student)))
 		{
@@ -92,7 +92,7 @@ class studentRecord
 
 	int checkroll(long long int n)
 	{
-		in.open(fileName.c_str(), ios::binary);
+		in.open(fileName.c_str());
 		int res = 0;
 		while (in.read((char *)&student, sizeof(student)))
 		{
@@ -104,6 +104,30 @@ class studentRecord
 		in.close();
 		return res;
 	}
+
+	void AddPreferences(long long int n)
+	{
+		system("clear");
+		ProgramRecord program;
+		char addMore;
+		int Progcode;
+		cout << "\t\tAdd Preferences (Program Code) in Decreasing Order:" << endl;
+		program.ListAllPrograms();
+
+		in.open(fileName.c_str());
+		while (in.read((char *)&student, sizeof(student)))
+		{
+			if (student.getEnrollment() == n)
+			{
+				do
+				{
+					cin >> Progcode;
+					student.preference.push_back(Progcode);
+					cout << "\t\tDo You want to Enter more? (Y/N)" << endl;
+					cin >> addMore;
+				} while (addMore == 'Y' || addMore == 'y');
+			}
+		}
+		in.close();
+	}
 };
-
-

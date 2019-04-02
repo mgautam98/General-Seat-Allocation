@@ -11,7 +11,7 @@ class ProgramRecord
   public:
     void Display_Program()
     {
-        in.open(fileName.c_str(), ios::binary);
+        in.open(fileName.c_str());
         while (in.read((char *)&program, sizeof(program)))
             {
                 program.Display();
@@ -21,7 +21,7 @@ class ProgramRecord
 
     void Enter_Program()
     {
-        out.open(fileName.c_str(), ios::binary | ios::app);
+        out.open(fileName.c_str(), ios::app);
         program.Enter();
         out.write((char *)&program, sizeof(program));
         out.close();
@@ -29,7 +29,7 @@ class ProgramRecord
 
     Program Find_Program(long long int n)
     {
-        in.open(fileName.c_str(), ios::binary);
+        in.open(fileName.c_str());
         int found = 0;
         while (in.read((char *)&program, sizeof(program)))
         {
@@ -45,8 +45,8 @@ class ProgramRecord
 
     void Delete_Program(long long int n)
     {
-        in.open(fileName.c_str(), ios::binary);
-        out.open("Records/Temp.dat", ios::out | ios::binary);
+        in.open(fileName.c_str());
+        out.open("Records/Temp.dat", ios::out);
         while (in.read((char *)&program, sizeof(program)))
         {
             if (program.getProgramID() != n)
@@ -62,7 +62,7 @@ class ProgramRecord
 
     void Update_Program(long long int n)
     {
-        finout.open(fileName.c_str(), ios::binary | ios::in | ios::out);
+        finout.open(fileName.c_str(), ios::in | ios::out);
         int found = 0;
         while (finout.read((char *)&program, sizeof(program)))
         {
@@ -84,7 +84,7 @@ class ProgramRecord
     }
     int checkprogramaval(long long int n)
 	{
-		in.open(fileName.c_str(), ios::binary);
+		in.open(fileName.c_str());
 		int res = 0;
 		while (in.read((char *)&program, sizeof(program)))
 		{
@@ -99,7 +99,7 @@ class ProgramRecord
 
     Program ListAllPrograms()
     {
-        in.open(fileName.c_str(), ios::binary);
+        in.open(fileName.c_str());
         while (in.read((char *)&program, sizeof(program)))
         {
             program.Display();
