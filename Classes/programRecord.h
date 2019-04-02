@@ -1,57 +1,57 @@
 
-class seatRecord
+class ProgramRecord
 {
   protected:
     ofstream out;
     ifstream in;
     fstream finout;
-    Seat seat;
-    string fileName = "Records/Seat.dat";
+    Program program;
+    string fileName = "Records/Program.dat";
 
   public:
-    void Display_Seat()
+    void Display_Program()
     {
         in.open(fileName.c_str(), ios::binary);
-        while (in.read((char *)&seat), sizeof(seat)))
+        while (in.read((char *)&program), sizeof(program)))
             {
-                seat.Display();
+                program.Display();
             }
         in.close();
     }
 
-    void Enter_Seat()
+    void Enter_Program()
     {
         out.open(fileName.c_str(), ios::binary | ios::app);
-        seat.Enter();
-        out.write((char *)&seat, sizeof(seat));
+        program.Enter();
+        out.write((char *)&program, sizeof(program));
         out.close();
     }
 
-    Seat Find_Seat(long long int n)
+    Program Find_Program(long long int n)
     {
         in.open(fileName.c_str(), ios::binary);
         int found = 0;
-        while (in.read((char *)&seat, sizeof(seat)))
+        while (in.read((char *)&program, sizeof(program)))
         {
-            if (seat.getSeatID() == n)
+            if (program.getProgramID() == n)
             {
                 in.close();
                 found = 1;
-                return seat;
+                return program;
             }
         }
         in.close();
     }
 
-    void Delete_Seat(long long int n)
+    void Delete_Program(long long int n)
     {
         in.open(fileName.c_str(), ios::binary);
         out.open("Records/Temp.dat", ios::out | ios::binary);
-        while (in.read((char *)&seat, sizeof(seat)))
+        while (in.read((char *)&program, sizeof(program)))
         {
-            if (seat.getSeatID() != n)
+            if (program.getProgramID() != n)
             {
-                out.write((char *)&seat, sizeof(seat));
+                out.write((char *)&program, sizeof(program));
             }
         }
         in.close();
@@ -60,24 +60,24 @@ class seatRecord
         rename("Records/Temp.dat", fileName.c_str());
     }
 
-    void Update_Seat(long long int n)
+    void Update_Program(long long int n)
     {
         finout.open(fileName.c_str(), ios::binary | ios::in | ios::out);
         int found = 0;
-        while (finout.read((char *)&seat, sizeof(seat)))
+        while (finout.read((char *)&program, sizeof(program)))
         {
-            if (seat.getSeatID() == n)
+            if (program.getProgramID() == n)
             {
-                seat.Display();
-                long long int pos = -1 * sizeof(seat);
+                program.Display();
+                long long int pos = -1 * sizeof(program);
                 finout.seekp(pos, ios::cur);
                 cout << "\n\n\n\n\n\n\n\n\n\n\n";
                 cout << "\t\t||------------------------------------------------||\n";
-                cout << "\t\t     Enter the new details of Seat\n";
+                cout << "\t\t     Enter the new details of Program\n";
                 cout << "\t\t||------------------------------------------------||\n";
                 cout << "\n\n";
-                seat.Enter();
-                finout.write((char *)&seat, sizeof(seat));
+                program.Enter();
+                finout.write((char *)&program, sizeof(program));
             }
         }
         finout.close();
