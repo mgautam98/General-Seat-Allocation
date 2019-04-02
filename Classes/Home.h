@@ -1,6 +1,6 @@
 //menu
-int c,c2;
-long long int roll;
+int c,c2,c3;
+long long int roll,code;
 studentRecord student;
 ProgramRecord program;
 void login()
@@ -20,6 +20,7 @@ void login()
 		cout << "\t\t||\t\t 1.  Profile \t\t          ||  \n";
 		cout << "\t\t||\t\t 2.  Update Profile\t\t  ||" << endl;
 		cout << "\t\t||\t\t 3.  Delete Profile\t\t  ||" << endl;
+		cout << "\t\t||\t\t 4.  Add Preferences\t\t  ||" << endl;
 		cout << "\t\t||\t\t 0.  Exit\t\t\t  ||" << endl;
 		cout<<"\t\t||------------------------------------------------||\n";
 		cout<<"\t\t\t\tEnter Your Choice:";
@@ -27,21 +28,27 @@ void login()
 		switch(c2)
 		{
 			case 1:
-			{	
-				// studentRecord s;
+			{	system("clear");
 				student.Find_Student(roll);	
 				break;
 			}
 			case 2:
 			{
+				system("clear");
 				student.Update_Student(roll);
 				break;
 			} 
 			case 3:
 			{
+				system("clear");
 				student.Delete_Student(roll);
 				break;
 			}
+			case 4:
+			{
+				break;
+			}
+			
 			case 0:{
 				break;
 			}		
@@ -55,6 +62,64 @@ void login()
 		cout<<"\t\t||------------------------------------------------||\n";
 	}
 }
+void checkProgram()
+{
+	cout<<"\n\n\n\n\n\n\n\n\n\n\n";
+	cout<<"\t\t||------------------------------------------------||\n";
+	cout<<"\t\t\t\tEnter Program Code \n";
+	cout<<"\t\t||------------------------------------------------||\n";
+	cout<<"\t\t\t\t     ";
+	cin>>code;
+	if(program.checkprogramaval(code))
+	{
+		cout<<"\n\n\n\n\n\n\n\n\n\n\n";
+		cout<<"\t\t\t         Program Details\n";
+		cout<<"\t\t||------------------------------------------------||\n";
+		cout<<"\t\t||\tProgram:\t\t\t\t  ||\n";
+		cout << "\t\t||\t\t 1.  View Detail \t          ||  \n";
+		cout << "\t\t||\t\t 2.  Update Program\t\t  ||" << endl;
+		cout << "\t\t||\t\t 3.  Delete Program\t\t  ||" << endl;
+		cout << "\t\t||\t\t 0.  Exit\t\t\t  ||" << endl;
+		cout<<"\t\t||------------------------------------------------||\n";
+		cout<<"\t\t\t\tEnter Your Choice:";
+		cin>>c3;
+		switch(c3)
+		{
+			case 1:
+			{	system("clear");
+				program.Find_Program(code);	
+				break;
+			}
+			case 2:
+			{
+				system("clear");
+				program.Update_Program(code);
+				break;
+			} 
+			case 3:
+			{
+				system("clear");
+				program.Delete_Program(code);
+				break;
+			}
+			case 4:
+			{
+				break;
+			}
+			
+			case 0:{
+				break;
+			}		
+		}
+	}
+	else
+	{
+		cout<<"\n\n\n\n\n\n\n\n\n\n\n";
+		cout<<"\t\t||------------------------------------------------||\n";
+		cout<<"\t\t\t  This Programme is not Register\n";
+		cout<<"\t\t||------------------------------------------------||\n";
+	}
+}
 void displayMain()
 {
 	do
@@ -64,6 +129,8 @@ void displayMain()
 		cout << "\t\t||------------------------------------------------||" << endl;
 		cout << "\t\t||\tCandidate:\t\t\t\t  ||" << endl;
 		cout << "\t\t||\t\t 1.  Register \t2. Login \t  ||" << endl;
+		cout << "\t\t||\t\t 3.  Add Program \t          ||" << endl;
+		cout << "\t\t||\t\t 4.  Check Program \t          ||" << endl;
 		cout << "\t\t||\t\t 0.  Exit\t\t\t  ||" << endl;
 		cout << "\t\t||------------------------------------------------||" << endl;
 		cout << "\t\t\t\tEnter Your Choice:";
@@ -81,10 +148,22 @@ void displayMain()
 				login();
 				break;
 			}
+			case 3:
+			{
+				program.Enter_Program();
+				break;
+			}
+			case 4:
+			{
+				checkProgram();
+				break;
+			}
 			case 0:
+				system("clear");
 				exit(0);
 			default:
 			{
+				system("clear");
 				cout << "\t\t||------------------------------------------------||" << endl;
 				cout << "\t\t\tEnter Above Mentioned choice only!" << endl;
 				cout << "\t\t||------------------------------------------------||" << endl;

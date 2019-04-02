@@ -82,6 +82,20 @@ class ProgramRecord
         }
         finout.close();
     }
+    int checkprogramaval(long long int n)
+	{
+		in.open(fileName.c_str(), ios::binary);
+		int res = 0;
+		while (in.read((char *)&program, sizeof(program)))
+		{
+			if (program.getProgramID() == n)
+			{
+				res = 1;
+			}
+		}
+		in.close();
+		return res;
+	}
 
     Program ListAllPrograms()
     {

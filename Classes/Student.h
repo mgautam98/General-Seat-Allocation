@@ -95,18 +95,20 @@ class Student
 	}
 	void Display()
 	{
+		cout<<"\n\n\t\t System is fetching data.....wait a moment!\n\n";
+        system("sleep 2");
+        system("clear");
+        cout<<"\n\n\n\n\n\n\n\n\n\n\n";
 		cout << "\t\t\t     CANDIDATE'S DETAILS" << endl;
 		cout << "\t||-----------------------------------------------------------||" << endl;
 		cout << "\t\t   Candidate Name:\t";
 		name.showName();
-		cout << "\t\t" << endl
-			 << endl;
+		cout << "\t\t" << endl<< endl;
 		cout << "\t\t   JEE ROLL Number:\t" << roll << endl;
 		cout << "\t\t   State of Eligibility:\t" << state << endl;
 		cout << "\t\t   Category:\t" << category << endl;
 		cout << "\t\t   AIR:\t" << air << "\t";
-		cout << "  Category Rank:\t" << categoryrank << endl
-			 << endl;
+		cout << "  Category Rank:\t" << categoryrank << endl << endl;
 		cout << "\t\t   Other Details: " << endl;
 		cout << "\t\t\t   Dob:\t\t\t";
 		dob.showuDateInt();
