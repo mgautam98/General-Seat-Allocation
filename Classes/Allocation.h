@@ -7,6 +7,8 @@ class EligibleStudent
     int AIR;
     string category;
     bool isAlloted;
+    int AllotedCode;
+    int AllotedPreference;
     vector<int> preference;
 
     EligibleStudent()
@@ -20,13 +22,17 @@ class EligibleStudent
         AIR = stoi(air);
         category = cat;
         isAlloted = false;
+        AllotedPreference = INT_MAX;
     }
 };
 
 class AvailableProgram
 {
   public:
-    int capacity;
+    int Totalcapacity;
+    int GenCap;
+    int ObcCap;
+    int scCap;
     int programID;
     bool Engaged;
     EligibleStudent allotedStudent;
@@ -38,8 +44,11 @@ class AvailableProgram
 
     AvailableProgram(string proID, int cap)
     {
-        capacity = cap;
+        Totalcapacity = cap;
         programID = stoi(proID);
+        GenCap = Totalcapacity / 2;
+        ObcCap = Totalcapacity / 4;
+        scCap = Totalcapacity / 4;
     }
 };
 
@@ -74,17 +83,112 @@ void ReadPrograms()
     in.close();
 }
 
-void RunAlgorithm()
+//EligibleStudents is already sorted
+//Gen+OBC+SC/ST
+void FirstPass()
 {
     for (auto i : EligibleStudents)
     {
-        cout << "HERE";
+        for (int j = 0; j < i.second.preference.size(); j++)
+        {
+            if (AvailablePrograms[i.second.preference[j]].GenCap > 0)
+            {
+                AvailablePrograms[i.second.preference[j]].GenCap--;
+                i.second.isAlloted = true;
+                i.second.AllotedCode = i.second.preference[j];
+                i.second.AllotedPreference = j;
+                break;
+            }
+        }
     }
 }
 
+void SecondPass()
+{
+    for (auto i : EligibleStudents)
+    {
+        if (i.second.category.compare("OBC") == 0)
+        {
+            for (int j = 0; j < i.second.preference.size(); j++)
+            {
+                if (AvailablePrograms[i.second.preference[j]].ObcCap > 0 && i.second.AllotedPreference < j)
+                {
+                    AvailablePrograms[i.second.preference[j]].ObcCap--;
+
+                    if (i.second.isAlloted)
+                    {
+                        AvailablePrograms[i.second.AllotedCode].GenCap++;
+                    }
+
+                    i.second.isAlloted = true;
+                    i.second.AllotedCode = i.second.preference[j];
+                    i.second.AllotedPreference = j;
+                    break;
+                }
+            }
+        }
+        else if (i.second.category.compare("SC/ST") == 0)
+        {
+            for (int j = 0; j < i.second.preference.size(); j++)
+            {
+                if (AvailablePrograms[i.second.preference[j]].scCap > 0 && i.second.AllotedPreference < j)
+                {
+                    AvailablePrograms[i.second.preference[j]].scCap--;
+
+                    if (i.second.isAlloted)
+                    {
+                        AvailablePrograms[i.second.AllotedCode].GenCap++;
+                    }
+
+                    i.second.isAlloted = true;
+                    i.second.AllotedCode = i.second.preference[j];
+                    i.second.AllotedPreference = j;
+                    break;
+                }
+            }
+        }
+    }
+}
+
+void ThirdPass()
+{
+    for (auto i : EligibleStudents)
+    {
+        for (int j = 0; j < i.second.preference.size(); j++)
+        {
+            if (AvailablePrograms[i.second.preference[j]].GenCap > 0 && i.second.AllotedPreference < j)
+            {
+                if (i.second.isAlloted)
+                {
+                    if (i.second.category.compare("GEN") == 0)
+                    {
+                        AvailablePrograms[i.second.AllotedCode].GenCap++;
+                    }
+                    else if (i.second.category.compare("OBC") == 0)
+                    {
+                        AvailablePrograms[i.second.AllotedCode].ObcCap++;
+                    }
+                    else
+                    {
+                        AvailablePrograms[i.second.AllotedCode].scCap++;
+                    }
+                }
+                AvailablePrograms[i.second.preference[j]].GenCap--;
+                i.second.isAlloted = true;
+                i.second.AllotedCode = i.second.preference[j];
+                i.second.AllotedPreference = j;
+                break;
+            }
+        }
+    }
+}
+
+//Eligible students will make proposals
 void Allocate()
 {
-    ReadStudents();
+    // ReadStudents();
     // ReadPrograms();
-    // RunAlgorithm();
+    // FirstPass();
+    // SecondPass();
+    // ThirdPass();
 }

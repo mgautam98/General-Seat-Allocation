@@ -3,6 +3,7 @@ class Program : public college
   public:
 	string capacity;
 	int Capacity;
+	int GEN_seats;
 	int OBC_seats;
 	int SC_ST_seats;
 	string program_code;
@@ -27,6 +28,7 @@ class Program : public college
 		program_code = college_code + branch_code;
 		cout << endl;
 		Capacity = stoi(capacity);
+		GEN_seats = Capacity / 2;
 		OBC_seats = Capacity / 4;
 		SC_ST_seats = Capacity / 4;
 	}
