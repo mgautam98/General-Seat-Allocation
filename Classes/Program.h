@@ -11,14 +11,19 @@ class Program : public college
 	{
 		cout << "\t\t\tEnter College Name:";
 		cin >> college_name;
+		system("clear");
 		cout << "\t\t\tEnter College Code:";
 		cin >> college_code;
+		system("clear");
 		cout << "\t\t\tEnter Branch:";
 		cin >> branch;
+		system("clear");
 		cout << "\t\t\tEnter Branch code:";
 		cin >> branch_code;
+		system("clear");
 		cout << "\t\t\tEnter Maximum No. of Seats:";
 		cin >> capacity;
+		system("clear");
 		program_code = college_code + branch_code;
 		cout << endl;
 		Capacity = stoi(capacity);
@@ -27,6 +32,10 @@ class Program : public college
 	}
 	void Display()
 	{
+		cout<<"\n\n\t\t System is fetching data.....wait a moment!\n\n";
+        system("sleep 2");
+        system("clear");
+        cout<<"\n\n\n\n\n\n\n\n\n\n\n";
 		cout << "\n\t\t\t          COLLEGE DETAILS" << endl;
 		cout << "\t||---------------------------------------------------------||" << endl;
 		cout << "\t College name:\t" << college_name << endl;
