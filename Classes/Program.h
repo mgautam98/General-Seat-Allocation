@@ -1,10 +1,10 @@
- class Program : public college 
+class Program : public college 
 {
   protected:
 	string capacity;
-	int Capacity
-	int OBC_seats;
-	int SC_ST_seats;
+	int Capacity;
+	int obc_seats;
+	int scst_seats;
 	string program_code;
   public:
 	void get_college_details()
@@ -22,8 +22,8 @@
 		program_code = college_code + branch_code;
 		cout << endl;
 		Capacity = stoi(capacity);
-		OBC_seats = Capacity/4;
-		SC_ST_seats = Capacity/4;
+		obc_seats = Capacity/4;
+		scst_seats = Capacity/4;
 		
 	}
 	void show_details()
@@ -33,11 +33,13 @@
 		cout << "\t College name:\t" << college_name<< endl;
 		cout << "\t Branch:\t" << branch<< endl;
 		cout << "\t General seats:\t" << Capacity/2<< endl;
-		cout << "\t OBC seats:\t" << OBC_seats<< endl;
-		cout << "\t SC/ST seats:\t" << SC_ST_seats<< endl;
+		cout << "\t OBC seats:\t" << obc_seats<< endl;
+		cout << "\t SC/ST seats:\t" << scst_seats<< endl;
 	}
-	int Program_code{stoi(program_code);}
+	int Program_code(){
+	    return stoi(program_code);
+	}
 	int Total_seats(){return Capacity;}
-	int OBC_seats(){return OBC_seats;}
-	int SCST_seats(){return SC_ST_seats;}
+	int OBC_seats(){return obc_seats;}
+	int SCST_seats(){return scst_seats;}
 };
