@@ -54,7 +54,7 @@ class Student
 	string state;
 	string category;
 	string air;
-	string categoryrank;
+	// string categoryrank;
 	string roll;
 	Student()
 	{
@@ -78,9 +78,9 @@ class Student
 		system("clear");
 		cout << "\t\tAIR:";
 		cin >> air;
-		system("clear");
-		cout << "\t\tCategory Rank:";
-		cin >> categoryrank;
+		// system("clear");
+		// cout << "\t\tCategory Rank:";
+		// cin >> categoryrank;
 		system("clear");
 		cout << "\t\tEnter Gender:";
 		cin >> gender;
@@ -108,7 +108,7 @@ class Student
 		cout << "\t\t   State of Eligibility:\t" << state << endl;
 		cout << "\t\t   Category:\t" << category << endl;
 		cout << "\t\t   AIR:\t" << air << "\t";
-		cout << "  Category Rank:\t" << categoryrank << endl << endl;
+		// cout << "  Category Rank:\t" << categoryrank << endl << endl;
 		cout << "\t\t   Other Details: " << endl;
 		cout << "\t\t\t   Dob:\t\t\t";
 		dob.showuDateInt();

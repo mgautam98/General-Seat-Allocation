@@ -1,5 +1,6 @@
 //menu
 int c,c2,c3;
+char anyKey;
 long long int roll,code;
 studentRecord student;
 ProgramRecord program;
@@ -87,7 +88,8 @@ void checkProgram()
 		{
 			case 1:
 			{	system("clear");
-				program.Find_Program(code);	
+				Program pgm = program.Find_Program(code);
+				pgm.Display();	
 				break;
 			}
 			case 2:
@@ -116,7 +118,7 @@ void checkProgram()
 	{
 		cout<<"\n\n\n\n\n\n\n\n\n\n\n";
 		cout<<"\t\t||------------------------------------------------||\n";
-		cout<<"\t\t\t  This Programme is not Register\n";
+		cout<<"\t\t\t  This Programme is not Available\n";
 		cout<<"\t\t||------------------------------------------------||\n";
 	}
 }
@@ -130,7 +132,8 @@ void displayMain()
 		cout << "\t\t||\tCandidate:\t\t\t\t  ||" << endl;
 		cout << "\t\t||\t\t 1.  Register \t2. Login \t  ||" << endl;
 		cout << "\t\t||\t\t 3.  Add Program \t          ||" << endl;
-		cout << "\t\t||\t\t 4.  Check Program \t          ||" << endl;
+		cout << "\t\t||\t\t 4.  Show Program \t          ||" << endl;
+		cout << "\t\t||\t\t 5.  Allocate Seats \t          ||" << endl;
 		cout << "\t\t||\t\t 0.  Exit\t\t\t  ||" << endl;
 		cout << "\t\t||------------------------------------------------||" << endl;
 		cout << "\t\t\t\tEnter Your Choice:";
@@ -156,6 +159,11 @@ void displayMain()
 			case 4:
 			{
 				checkProgram();
+				break;
+			}
+			case 5:
+			{
+				Allocate();
 				break;
 			}
 			case 0:

@@ -40,8 +40,8 @@ class AvailableProgram{
     }
 };
 
-vector<EligibleStudent> EligibleStudents;
-vector<AvailableProgram> AvailablePrograms;
+map<int, EligibleStudent> EligibleStudents;
+map<int, AvailableProgram> AvailablePrograms;
 
 void ReadStudents()
 {
@@ -52,7 +52,7 @@ void ReadStudents()
     while (in.read((char *)&student, sizeof(student)))
     {
         EligibleStudent newStudent(student.roll, student.air, student.category, student.preference);
-        EligibleStudents.push_back(newStudent);
+        EligibleStudents[stoi(student.roll)] = newStudent;
     }
     in.close();
 }
@@ -66,11 +66,20 @@ void ReadPrograms()
     while (in.read((char *)&program, sizeof(program)))
     {
         AvailableProgram newProgram(program.program_code, program.Capacity);
-        AvailablePrograms.push_back(newProgram);
+        AvailablePrograms[stoi(program.program_code)] = newProgram;
     }
     in.close();
 }
 
+void RunAlgorithm(){
+    for(auto i: EligibleStudents){
+        cout<<"HERE";
+    }
+}
+
 void Allocate()
 {
+    ReadStudents();
+    ReadPrograms();
+    // RunAlgorithm();
 }
