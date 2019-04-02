@@ -113,7 +113,6 @@ class studentRecord
 		int Progcode;
 		cout << "\t\tAdd Preferences (Program Code) in Decreasing Order:" << endl;
 		program.ListAllPrograms();
-
 		in.open(fileName.c_str());
 		while (in.read((char *)&student, sizeof(student)))
 		{

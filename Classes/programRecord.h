@@ -97,7 +97,7 @@ class ProgramRecord
 		return res;
 	}
 
-    Program ListAllPrograms()
+    void ListAllPrograms()
     {
         in.open(fileName.c_str());
         while (in.read((char *)&program, sizeof(program)))
