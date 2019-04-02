@@ -121,4 +121,20 @@ class Student
 	{
 		return stoi(roll);
 	}
+
+	void AddPreferences(){
+		system("clear");
+		ProgramRecord program;
+		char addMore;
+		int Progcode;
+		cout << "\t\tAdd Preferences (Program Code) in Decreasing Order:" << endl;
+		program.ListAllPrograms();
+
+		do{
+			cin>>Progcode;
+			cout << "\t\tDo You want to Enter more? (Y/N)" << endl;
+			cin>>addMore;
+		}while(addMore=='Y' || addMore=='y');
+	}
+	
 };

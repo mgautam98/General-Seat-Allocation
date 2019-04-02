@@ -5,8 +5,8 @@ using namespace std;
 #include "Classes/programRecord.h"
 #include "Classes/Student.h"
 #include "Classes/studentRecord.h"
-#include "Classes/Home.h"
 #include "Classes/Allocation.h"
+#include "Classes/Home.h"
 
 
 int main(){
