@@ -2,12 +2,12 @@
 {
   protected:
 	string capacity;
-	int Capacity
+	int Capacity;
 	int OBC_seats;
 	int SC_ST_seats;
 	string program_code;
   public:
-	void get_college_details()
+	void Enter()
 	{
 		cout << "\t\t\tEnter College Name:";
 		cin >> college_name;
@@ -26,7 +26,7 @@
 		SC_ST_seats = Capacity/4;
 		
 	}
-	void show_details()
+	void Display()
 	{
 		cout <<"\n\t\t\t          COLLEGE DETAILS" << endl;
 		cout << "\t||---------------------------------------------------------||" << endl;
@@ -36,8 +36,8 @@
 		cout << "\t OBC seats:\t" << OBC_seats<< endl;
 		cout << "\t SC/ST seats:\t" << SC_ST_seats<< endl;
 	}
-	int Program_code{stoi(program_code);}
+	int getProgramID(){return stoi(program_code);}
 	int Total_seats(){return Capacity;}
-	int OBC_seats(){return OBC_seats;}
+	int obc_seats(){return OBC_seats;}
 	int SCST_seats(){return SC_ST_seats;}
 };

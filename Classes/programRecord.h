@@ -12,7 +12,7 @@ class ProgramRecord
     void Display_Program()
     {
         in.open(fileName.c_str(), ios::binary);
-        while (in.read((char *)&program), sizeof(program)))
+        while (in.read((char *)&program, sizeof(program)))
             {
                 program.Display();
             }
