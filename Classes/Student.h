@@ -45,12 +45,12 @@ class Student
 {
   protected:
 	Name name;
-	Name fatherName;
-	Name motherName;
+	// Name fatherName;
+	// Name motherName;
 	string gender;
 	string email;
 	DOB dob;
-	string mobile;
+	// string mobile;
 	string state;
 	string category;
 	string air;
@@ -89,15 +89,15 @@ class Student
 		cout << "\t\tEnter Email:";
 		cin >> email;
         system("clear");
-		cout << "\t\tEnter Mobile:";
-		cin >> mobile;
-        system("clear");
-		cout << "\n\t\tFather Name:" << endl;
-		fatherName.getName();
-        system("clear");
-		cout << "\t\tMother Name:" << endl;
-		motherName.getName();
-        system("clear");
+		// cout << "\t\tEnter Mobile:";
+		// cin >> mobile;
+        // system("clear");
+		// cout << "\n\t\tFather Name:" << endl;
+		// fatherName.getName();
+        // system("clear");
+		// cout << "\t\tMother Name:" << endl;
+		// motherName.getName();
+        // system("clear");
 		cout << "\t||---------------------------------------------------------||" << endl;
 	}
 	void Display()
@@ -119,14 +119,14 @@ class Student
 		dob.showuDateInt();
 		cout << endl;
 		cout << "\t\t\t   Gender:\t\t" << gender << endl;
-		cout << "\t\t\t   Father's Name:\t";
-		fatherName.showName();
-		cout << endl;
-		cout << "\t\t\t   Mother's Name:\t";
-		motherName.showName();
-		cout << endl;
+		// cout << "\t\t\t   Father's Name:\t";
+		// fatherName.showName();
+		// cout << endl;
+		// cout << "\t\t\t   Mother's Name:\t";
+		// motherName.showName();
+		// cout << endl;
 		cout << "\t\t\t   Email:\t\t" << email << endl;
-		cout << "\t\t\t   Mobile:\t\t" << mobile << endl;
+		// cout << "\t\t\t   Mobile:\t\t" << mobile << endl;
 		cout << "\t||-----------------------------------------------------------||" << endl;
 	}
 	long long int getEnrollment()

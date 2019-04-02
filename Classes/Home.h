@@ -1,5 +1,6 @@
 //menu
-int c,c2,roll=0;
+int c,c2;
+long long int roll;
 studentRecord student;
 void login()
 {
@@ -26,8 +27,8 @@ void login()
 		{
 			case 1:
 			{	
-				studentRecord s;
-				s.Find_Student(roll);	
+				// studentRecord s;
+				student.Find_Student(roll);	
 				break;
 			}
 			case 2:
@@ -90,5 +91,5 @@ void displayMain()
 				break;
 			}
 		}
-	} while (c!=3);
+	} while (1);
 }
