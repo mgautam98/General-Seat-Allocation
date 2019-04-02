@@ -82,4 +82,14 @@ class ProgramRecord
         }
         finout.close();
     }
+
+    Program ListAllPrograms()
+    {
+        in.open(fileName.c_str(), ios::binary);
+        while (in.read((char *)&program, sizeof(program)))
+        {
+            program.Display();
+        }
+        in.close();
+    }
 };

@@ -2,6 +2,7 @@
 int c,c2;
 long long int roll;
 studentRecord student;
+ProgramRecord program;
 void login()
 {
 	cout<<"\n\n\n\n\n\n\n\n\n\n\n";
