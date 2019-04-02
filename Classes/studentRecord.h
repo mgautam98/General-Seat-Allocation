@@ -99,10 +99,11 @@ class studentRecord
 			if (student.getEnrollment() == n)
 			{
 				res = 1;
-				break;
 			}
 		}
 		in.close();
 		return res;
 	}
 };
+
+
