@@ -89,4 +89,20 @@ class studentRecord
 		}
 		finout.close();
 	}
+
+	int checkroll(long long int n)
+	{
+		in.open(fileName.c_str(), ios::binary);
+		int res = 0;
+		while (in.read((char *)&student, sizeof(student)))
+		{
+			if (student.getEnrollment() == n)
+			{
+				res = 1;
+				break;
+			}
+		}
+		in.close();
+		return res;
+	}
 };

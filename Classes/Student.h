@@ -41,17 +41,16 @@ class DOB
 		cout << day << "/" << month << "/" << year;
 	}
 };
-
 class Student
 {
   protected:
 	Name name;
-	Name fatherName;
-	Name motherName;
+	// Name fatherName;
+	// Name motherName;
 	string gender;
 	string email;
 	DOB dob;
-	string mobile;
+	// string mobile;
 	string state;
 	string category;
 	string air;
@@ -65,40 +64,40 @@ class Student
 		cout << "\t||---------------------------------------------------------||" << endl;
 		cout << "\t\tEnter JEE Roll Number:";
 		cin >> roll;
-
+		system("clear");
 		cout << "\t\tCandidate Name:" << endl;
 		name.getName();
-
+		system("clear");
 		cout << "\t\tState of Eligibility:";
 		cin >> state;
-
+		system("clear");
 		cout << "\t\tCategory:";
 		cin >> category;
-
+        system("clear");
 		cout << "\t\tAIR:";
 		cin >> air;
-
+        system("clear");
 		cout << "\t\tCategory Rank:";
 		cin >> categoryrank;
-
+        system("clear");
 		cout << "\t\tEnter Gender:";
 		cin >> gender;
-
+        system("clear");
 		cout << "\t\tDOB:\n";
 		dob.getuDate();
-
+        system("clear");
 		cout << "\t\tEnter Email:";
 		cin >> email;
-
-		cout << "\t\tEnter Mobile:";
-		cin >> mobile;
-
-		cout << "\n\t\tFather Name:" << endl;
-		fatherName.getName();
-
-		cout << "\t\tMother Name:" << endl;
-		motherName.getName();
-
+        system("clear");
+		// cout << "\t\tEnter Mobile:";
+		// cin >> mobile;
+        // system("clear");
+		// cout << "\n\t\tFather Name:" << endl;
+		// fatherName.getName();
+        // system("clear");
+		// cout << "\t\tMother Name:" << endl;
+		// motherName.getName();
+        // system("clear");
 		cout << "\t||---------------------------------------------------------||" << endl;
 	}
 	void Display()
@@ -120,14 +119,14 @@ class Student
 		dob.showuDateInt();
 		cout << endl;
 		cout << "\t\t\t   Gender:\t\t" << gender << endl;
-		cout << "\t\t\t   Father's Name:\t";
-		fatherName.showName();
-		cout << endl;
-		cout << "\t\t\t   Mother's Name:\t";
-		motherName.showName();
-		cout << endl;
+		// cout << "\t\t\t   Father's Name:\t";
+		// fatherName.showName();
+		// cout << endl;
+		// cout << "\t\t\t   Mother's Name:\t";
+		// motherName.showName();
+		// cout << endl;
 		cout << "\t\t\t   Email:\t\t" << email << endl;
-		cout << "\t\t\t   Mobile:\t\t" << mobile << endl;
+		// cout << "\t\t\t   Mobile:\t\t" << mobile << endl;
 		cout << "\t||-----------------------------------------------------------||" << endl;
 	}
 	long long int getEnrollment()

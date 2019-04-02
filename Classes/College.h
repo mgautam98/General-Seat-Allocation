@@ -1,6 +1,7 @@
-    
-class college{
-protected:
+
+class college
+{
+  protected:
     string college_name;
     string college_code;
     string branch;
@@ -10,4 +11,4 @@ public:
     string branch(){return branch;}
     string collegecode(){return college_code;}
     string collegename(){return college_name;}
-}
+};
