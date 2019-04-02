@@ -41,7 +41,6 @@ class DOB
 		cout << day << "/" << month << "/" << year;
 	}
 };
-
 class Student
 {
   protected:
@@ -65,40 +64,40 @@ class Student
 		cout << "\t||---------------------------------------------------------||" << endl;
 		cout << "\t\tEnter JEE Roll Number:";
 		cin >> roll;
-
+		system("clear");
 		cout << "\t\tCandidate Name:" << endl;
 		name.getName();
-
+		system("clear");
 		cout << "\t\tState of Eligibility:";
 		cin >> state;
-
+		system("clear");
 		cout << "\t\tCategory:";
 		cin >> category;
-
+        system("clear");
 		cout << "\t\tAIR:";
 		cin >> air;
-
+        system("clear");
 		cout << "\t\tCategory Rank:";
 		cin >> categoryrank;
-
+        system("clear");
 		cout << "\t\tEnter Gender:";
 		cin >> gender;
-
+        system("clear");
 		cout << "\t\tDOB:\n";
 		dob.getuDate();
-
+        system("clear");
 		cout << "\t\tEnter Email:";
 		cin >> email;
-
+        system("clear");
 		cout << "\t\tEnter Mobile:";
 		cin >> mobile;
-
+        system("clear");
 		cout << "\n\t\tFather Name:" << endl;
 		fatherName.getName();
-
+        system("clear");
 		cout << "\t\tMother Name:" << endl;
 		motherName.getName();
-
+        system("clear");
 		cout << "\t||---------------------------------------------------------||" << endl;
 	}
 	void Display()
