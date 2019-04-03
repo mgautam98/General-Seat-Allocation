@@ -126,7 +126,8 @@ class studentRecord
 					student.preference.push_back(Progcode);
 					cout << "\t\tDo You want to Enter more? (Y/N)" << endl;
 					cin >> addMore;
-				} while (addMore == 'Y' || addMore == 'y');
+					if(addMore=='n' || addMore=='N') break;
+				} while (1);
 			}
 		}
 		in.close();

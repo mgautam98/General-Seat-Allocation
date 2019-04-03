@@ -2,8 +2,8 @@
 class college
 {
   public:
-    string college_name;
-    string college_code;
-    string branch;
-    string branch_code;
+    char college_name[20];
+    int college_code;
+    char branch[20];
+    int branch_code;
 };

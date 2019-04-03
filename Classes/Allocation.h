@@ -131,8 +131,8 @@ void ThirdPass()
 
 void DisplayAllocation(){
     for(auto i:EligibleStudents){
-        if(i.second.isAlloted){
-            cout << "\t\t Student Name : " << i.second.rollNo<< "Alloted Program : "<<i.second.AllotedCode<<endl;
+        if(1){
+            cout << "\t\t Student Roll No. : " << i.second.rollNo<< "   Alloted Program : "<<i.second.AllotedCode<<endl;
         }
     }
 }
