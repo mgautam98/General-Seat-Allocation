@@ -129,10 +129,19 @@ void ThirdPass()
     }
 }
 
+void DisplayAllocation(){
+    for(auto i:EligibleStudents){
+        if(i.second.isAlloted){
+            cout << "\t\t Student Name : " << i.second.rollNo<< "Alloted Program : "<<i.second.AllotedCode<<endl;
+        }
+    }
+}
+
 //Eligible students will make proposals
 void Allocate()
 {
     FirstPass();
     SecondPass();
     ThirdPass();
+    DisplayAllocation();
 }
