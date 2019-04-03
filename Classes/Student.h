@@ -1,10 +1,9 @@
 class Name
 {
-  protected:
+  public:
 	string fiNam;
 	string lName;
 
-  public:
 	void getName()
 	{
 		cout << "\t\t\tEnter First Name:";
@@ -21,12 +20,11 @@ class Name
 
 class DOB
 {
-  protected:
+  public:
 	string day;
 	string month;
 	string year;
 
-  public:
 	void getuDate()
 	{
 		cout << "\t\t\tEnter Day:";

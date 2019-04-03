@@ -186,7 +186,7 @@ void ThirdPass()
 //Eligible students will make proposals
 void Allocate()
 {
-    // ReadStudents();
+    ReadStudents();
     // ReadPrograms();
     // FirstPass();
     // SecondPass();
