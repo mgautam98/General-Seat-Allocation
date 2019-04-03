@@ -1,8 +1,8 @@
 class Name
 {
   public:
-	string fiNam;
-	string lName;
+	char fiNam[20];
+	char lName[20];
 
 	void getName()
 	{
@@ -21,9 +21,9 @@ class Name
 class DOB
 {
   public:
-	string day;
-	string month;
-	string year;
+	char day[20];
+	char month[20];
+	char year[20];
 
 	void getuDate()
 	{
@@ -45,15 +45,15 @@ class Student
 	Name name;
 	vector<int> preference;
 	bool isAlloted;
-	string AllotedProgram;
-	string gender;
-	string email;
+	char AllotedProgram[50];
+	char gender;
+	char email[50];
 	DOB dob;
-	string state;
-	string category;
-	string air;
+	char state[20];
+	char category[20];
+	int air;
 	// string categoryrank;
-	string roll;
+	int roll;
 	Student()
 	{
 		isAlloted = false;
@@ -117,7 +117,7 @@ class Student
 	}
 	long long int getEnrollment()
 	{
-		return stoi(roll);
+		return roll;
 	}
 	
 };

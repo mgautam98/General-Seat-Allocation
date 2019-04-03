@@ -2,7 +2,7 @@
 class EligibleStudent
 {
   public:
-    string rollNo;
+    int rollNo;
     int AIR;
     string category;
     bool isAlloted;
@@ -15,10 +15,10 @@ class EligibleStudent
         isAlloted = false;
     }
 
-    EligibleStudent(string roll, string air, string cat, vector<int> pref) : preference(pref)
+    EligibleStudent(int roll, int air, string cat, vector<int> pref) : preference(pref)
     {
         rollNo = rollNo;
-        AIR = stoi(air);
+        AIR = air;
         category = cat;
         isAlloted = false;
         AllotedPreference = INT_MAX;
@@ -41,10 +41,10 @@ class AvailableProgram
         Engaged = false;
     }
 
-    AvailableProgram(string proID, int cap)
+    AvailableProgram(int proID, int cap)
     {
         Totalcapacity = cap;
-        programID = stoi(proID);
+        programID = proID;
         GenCap = Totalcapacity / 2;
         ObcCap = Totalcapacity / 4;
         scCap = Totalcapacity / 4;

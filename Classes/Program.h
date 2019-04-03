@@ -1,12 +1,12 @@
 class Program : public college
 {
   public:
-	string capacity;
+	int capacity;
 	int Capacity;
 	int GEN_seats;
 	int OBC_seats;
 	int SC_ST_seats;
-	string program_code;
+	int program_code;
 
 	void Enter()
 	{
@@ -25,9 +25,9 @@ class Program : public college
 		cout << "\t\t\tEnter Maximum No. of Seats:";
 		cin >> capacity;
 		system("clear");
-		program_code = college_code + branch_code;
+		program_code = college_code*10 + branch_code;
 		cout << endl;
-		Capacity = stoi(capacity);
+		Capacity = capacity;
 		GEN_seats = Capacity / 2;
 		OBC_seats = Capacity / 4;
 		SC_ST_seats = Capacity / 4;
@@ -47,7 +47,7 @@ class Program : public college
 		// cout << "\t OBC seats:\t" << OBC_seats << endl;
 		// cout << "\t SC/ST seats:\t" << SC_ST_seats << endl;
 	}
-	int getProgramID() { return stoi(program_code); }
+	int getProgramID() { return (program_code); }
 	int Total_seats() { return Capacity; }
 	int obc_seats() { return OBC_seats; }
 	int SCST_seats() { return SC_ST_seats; }
