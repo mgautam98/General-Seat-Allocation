@@ -1,7 +1,7 @@
 
 class college
 {
-  protected:
+  public:
     string college_name;
     string college_code;
     string branch;

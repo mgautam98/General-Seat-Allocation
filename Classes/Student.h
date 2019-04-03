@@ -1,10 +1,9 @@
 class Name
 {
-  protected:
+  public:
 	string fiNam;
 	string lName;
 
-  public:
 	void getName()
 	{
 		cout << "\t\t\tEnter First Name:";
@@ -21,12 +20,11 @@ class Name
 
 class DOB
 {
-  protected:
+  public:
 	string day;
 	string month;
 	string year;
 
-  public:
 	void getuDate()
 	{
 		cout << "\t\t\tEnter Day:";
@@ -54,7 +52,7 @@ class Student
 	string state;
 	string category;
 	string air;
-	string categoryrank;
+	// string categoryrank;
 	string roll;
 	Student()
 	{
@@ -78,9 +76,9 @@ class Student
 		system("clear");
 		cout << "\t\tAIR:";
 		cin >> air;
-		system("clear");
-		cout << "\t\tCategory Rank:";
-		cin >> categoryrank;
+		// system("clear");
+		// cout << "\t\tCategory Rank:";
+		// cin >> categoryrank;
 		system("clear");
 		cout << "\t\tEnter Gender:";
 		cin >> gender;
@@ -108,7 +106,7 @@ class Student
 		cout << "\t\t   State of Eligibility:\t" << state << endl;
 		cout << "\t\t   Category:\t" << category << endl;
 		cout << "\t\t   AIR:\t" << air << "\t";
-		cout << "  Category Rank:\t" << categoryrank << endl << endl;
+		// cout << "  Category Rank:\t" << categoryrank << endl << endl;
 		cout << "\t\t   Other Details: " << endl;
 		cout << "\t\t\t   Dob:\t\t\t";
 		dob.showuDateInt();
@@ -120,21 +118,6 @@ class Student
 	long long int getEnrollment()
 	{
 		return stoi(roll);
-	}
-
-	void AddPreferences(){
-		system("clear");
-		ProgramRecord program;
-		char addMore;
-		int Progcode;
-		cout << "\t\tAdd Preferences (Program Code) in Decreasing Order:" << endl;
-		program.ListAllPrograms();
-
-		do{
-			cin>>Progcode;
-			cout << "\t\tDo You want to Enter more? (Y/N)" << endl;
-			cin>>addMore;
-		}while(addMore=='Y' || addMore=='y');
 	}
 	
 };
