@@ -23,6 +23,8 @@ class studentRecord
 	{
 		out.open(fileName.c_str(), ios::app);
 		student.Enter();
+		EligibleStudent newStudent(student.roll, student.air, student.category, student.preference);
+        EligibleStudents.insert({newStudent.AIR, newStudent});
 		out.write((char *)&student, sizeof(student));
 		out.close();
 	}

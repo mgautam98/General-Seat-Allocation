@@ -1,72 +1,17 @@
 //Gale–Shapley algorithm
-
-class EligibleStudent
-{
-  public:
-    string rollNo;
-    int AIR;
-    string category;
-    bool isAlloted;
-    int AllotedCode;
-    int AllotedPreference;
-    vector<int> preference;
-
-    EligibleStudent()
-    {
-        isAlloted = false;
-    }
-
-    EligibleStudent(string roll, string air, string cat, vector<int> pref) : preference(pref)
-    {
-        rollNo = rollNo;
-        AIR = stoi(air);
-        category = cat;
-        isAlloted = false;
-        AllotedPreference = INT_MAX;
-    }
-};
-
-class AvailableProgram
-{
-  public:
-    int Totalcapacity;
-    int GenCap;
-    int ObcCap;
-    int scCap;
-    int programID;
-    bool Engaged;
-    EligibleStudent allotedStudent;
-
-    AvailableProgram()
-    {
-        Engaged = false;
-    }
-
-    AvailableProgram(string proID, int cap)
-    {
-        Totalcapacity = cap;
-        programID = stoi(proID);
-        GenCap = Totalcapacity / 2;
-        ObcCap = Totalcapacity / 4;
-        scCap = Totalcapacity / 4;
-    }
-};
-
-map<int, EligibleStudent> EligibleStudents;
-map<int, AvailableProgram> AvailablePrograms;
-
 void ReadStudents()
 {
     ifstream in;
-    Student student;
+    Student stu;
     string StudentfileName = "Records/Student.dat";
     in.open(StudentfileName.c_str());
-    while (in.read((char *)&student, sizeof(student)))
+    while (in.read((char *)&stu, sizeof(stu)))
     {
-        EligibleStudent newStudent(student.roll, student.air, student.category, student.preference);
-        EligibleStudents[newStudent.AIR] = newStudent;
+        // EligibleStudent newStudent(stu.roll, stu.air, stu.category, stu.preference);
+        // EligibleStudents.insert({newStudent.AIR, newStudent});
+        cout<<"\n"<<stu.air<<endl;
     }
-    in.close();
+    // in.close();
 }
 
 void ReadPrograms()
@@ -75,12 +20,13 @@ void ReadPrograms()
     Program program;
     string fileName = "Records/Program.dat";
     in.open(fileName.c_str());
-    while (in.read((char *)&program, sizeof(program)))
-    {
-        AvailableProgram newProgram(program.program_code, program.Capacity);
-        AvailablePrograms[newProgram.programID] = newProgram;
-    }
+    // while (in.read((char *)&program, sizeof(program)))
+    // {
+        // AvailableProgram newProgram(program.program_code, program.Capacity);
+        // AvailablePrograms.insert({newProgram.programID, newProgram})
+    // }
     in.close();
+    return;
 }
 
 //EligibleStudents is already sorted
@@ -186,9 +132,7 @@ void ThirdPass()
 //Eligible students will make proposals
 void Allocate()
 {
-    ReadStudents();
-    // ReadPrograms();
-    // FirstPass();
-    // SecondPass();
-    // ThirdPass();
+    FirstPass();
+    SecondPass();
+    ThirdPass();
 }

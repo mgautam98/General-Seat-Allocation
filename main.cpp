@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #include "Classes/College.h"
+#include "Classes/util.h"
 #include "Classes/Program.h"
 #include "Classes/programRecord.h"
 #include "Classes/Student.h"
