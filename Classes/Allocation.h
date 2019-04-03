@@ -7,11 +7,10 @@ void ReadStudents()
     in.open(StudentfileName.c_str());
     while (in.read((char *)&stu, sizeof(stu)))
     {
-        // EligibleStudent newStudent(stu.roll, stu.air, stu.category, stu.preference);
-        // EligibleStudents.insert({newStudent.AIR, newStudent});
-        cout<<"\n"<<stu.air<<endl;
+        EligibleStudent newStudent(stu.roll, stu.air, stu.category, stu.preference);
+        EligibleStudents.insert({newStudent.AIR, newStudent});
     }
-    // in.close();
+    in.close();
 }
 
 void ReadPrograms()
@@ -20,11 +19,11 @@ void ReadPrograms()
     Program program;
     string fileName = "Records/Program.dat";
     in.open(fileName.c_str());
-    // while (in.read((char *)&program, sizeof(program)))
-    // {
-        // AvailableProgram newProgram(program.program_code, program.Capacity);
-        // AvailablePrograms.insert({newProgram.programID, newProgram})
-    // }
+    while (in.read((char *)&program, sizeof(program)))
+    {
+        AvailableProgram newProgram(program.program_code, program.Capacity);
+        AvailablePrograms.insert({newProgram.programID, newProgram});
+    }
     in.close();
     return;
 }
@@ -53,7 +52,7 @@ void SecondPass()
 {
     for (auto i : EligibleStudents)
     {
-        if (i.second.category.compare("OBC") == 0)
+        if (strcmp(i.second.category, "OBC") == 0)
         {
             for (int j = 0; j < i.second.preference.size(); j++)
             {
@@ -73,7 +72,7 @@ void SecondPass()
                 }
             }
         }
-        else if (i.second.category.compare("SC/ST") == 0)
+        else if (strcmp(i.second.category, "SC/ST") == 0)
         {
             for (int j = 0; j < i.second.preference.size(); j++)
             {
@@ -106,11 +105,11 @@ void ThirdPass()
             {
                 if (i.second.isAlloted)
                 {
-                    if (i.second.category.compare("GEN") == 0)
+                    if (strcmp(i.second.category, "GEN") == 0)
                     {
                         AvailablePrograms[i.second.AllotedCode].GenCap++;
                     }
-                    else if (i.second.category.compare("OBC") == 0)
+                    else if (strcmp(i.second.category, "OBC") == 0)
                     {
                         AvailablePrograms[i.second.AllotedCode].ObcCap++;
                     }
@@ -131,15 +130,15 @@ void ThirdPass()
 
 void DisplayAllocation(){
     for(auto i:EligibleStudents){
-        if(1){
-            cout << "\t\t Student Roll No. : " << i.second.rollNo<< "   Alloted Program : "<<i.second.AllotedCode<<endl;
-        }
+        cout << "\t\t Student Roll No. : " << i.second.rollNo<< "   Alloted Program : "<<i.second.AllotedCode<<endl;
     }
 }
 
 //Eligible students will make proposals
 void Allocate()
 {
+    ReadStudents();
+    ReadPrograms();
     FirstPass();
     SecondPass();
     ThirdPass();

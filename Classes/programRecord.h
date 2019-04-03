@@ -23,8 +23,8 @@ class ProgramRecord
     {
         out.open(fileName.c_str(), ios::app);
         program.Enter();
-        AvailableProgram newProgram(program.program_code, program.Capacity);
-        AvailablePrograms.insert({newProgram.programID, newProgram});
+        // AvailableProgram newProgram(program.program_code, program.Capacity);
+        // AvailablePrograms.insert({newProgram.programID, newProgram});
         out.write((char *)&program, sizeof(program));
         out.close();
     }
