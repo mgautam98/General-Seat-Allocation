@@ -70,3 +70,15 @@ bool numString(char *str){
             return false;
     return true;
 }
+
+bool isValidCategory(int cat){
+    if(cat!=1 || cat!=2 || cat!=3) 
+        return false;
+    return true;
+}
+
+bool isValidGender(int gender){
+    if(gender!=1 || gender!=2) 
+        return false;
+    return true;
+}

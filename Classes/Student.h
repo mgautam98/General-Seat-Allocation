@@ -52,7 +52,6 @@ class Student
 	char state[20];
 	int category;
 	int air;
-	// string categoryrank;
 	int roll;
 	Student()
 	{
