@@ -13,10 +13,11 @@ using namespace std;
 int main(){
 	system("clear");
 	cout << "\n\n\n\n\n\n\n\n\n\n\n";
+	system("chmod +x run.sh");
 	system("./run.sh");
 	cout << "\t\t\t          Jee Seat Allocation" << endl;
 	cout << "\t\t||------------------------------------------------||" << endl;
-	system("sleep 2");
+	system("sleep 1");
 	cout << "\t\t\t          Made by:" << endl;
 	system("sleep 1");
 	cout << "\t\t\t\t\t          Gautam Mishra" << endl;
