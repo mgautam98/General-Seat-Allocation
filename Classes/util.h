@@ -66,7 +66,7 @@ bool alphaString(char *str){
 bool numString(char *str){
     int len = strlen(str);
     for(int i=0; i<len; i++) 
-        if(str[i]<'0' && str[i]>'9')
+        if(!isdigit(str[i]))
             return false;
     return true;
 }
