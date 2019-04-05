@@ -70,13 +70,13 @@ class Student
 		cout << "\t\tState of Eligibility:";
 		cin >> state;
 		system("clear");
-		cout << "\t\tCategory : 1. GEN / 2. OBC / 3. SCST";
+		cout << "\t\tCategory - 1. GEN / 2. OBC / 3. SCST\t:";
 		cin >> category;
 		system("clear");
 		cout << "\t\tAIR:";
 		cin >> air;
 		system("clear");
-		cout << "\t\tEnter Gender: 1. MALE / 2. FEMALE";
+		cout << "\t\tEnter Gender - 1. MALE / 2. FEMALE\t:";
 		cin >> gender;
 		system("clear");
 		cout << "\t\tDOB:\n";
@@ -90,7 +90,7 @@ class Student
 	void Display()
 	{
 		cout << "\n\n\t\t System is fetching data.....wait a moment!\n\n";
-		system("sleep 2");
+		system("sleep 1");
 		system("clear");
 		cout << "\n\n\n\n\n\n\n\n\n\n\n";
 		cout << "\t\t\t     CANDIDATE'S DETAILS" << endl;

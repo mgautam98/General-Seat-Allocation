@@ -138,9 +138,12 @@ void DisplayAllocation(){
 void Allocate()
 {
     ReadStudents();
-    ReadPrograms();
-    FirstPass();
-    SecondPass();
-    ThirdPass();
-    DisplayAllocation();
+    for(auto i:EligibleStudents){
+        cout<<i.second.rollNo<<endl;
+    }
+    // ReadPrograms();
+    // FirstPass();
+    // SecondPass();
+    // ThirdPass();
+    // DisplayAllocation();
 }
