@@ -4,7 +4,7 @@ class EligibleStudent
   public:
     int rollNo;
     int AIR;
-    char category[10];
+    int category;
     bool isAlloted;
     int AllotedCode;
     int AllotedPreference;
@@ -15,11 +15,11 @@ class EligibleStudent
         isAlloted = false;
     }
 
-    EligibleStudent(int roll, int air, char* cat, vector<int> pref) : preference(pref)
+    EligibleStudent(int roll, int air, int cat, vector<int> pref) : preference(pref)
     {
         rollNo = rollNo;
         AIR = air;
-        strcpy(category, cat);
+        category = cat;
         isAlloted = false;
         AllotedPreference = INT_MAX;
     }
