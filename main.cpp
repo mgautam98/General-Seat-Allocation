@@ -12,9 +12,11 @@ using namespace std;
 
 int main(){
 	system("clear");
-	cout << "\n\n\n\n\n\n\n\n\n\n\n";
 	system("chmod +x run.sh");
 	system("./run.sh");
+	system("sleep 1");
+	system("clear");
+	cout << "\n\n\n\n\n\n\n\n\n\n\n";
 	cout << "\t\t\t          Jee Seat Allocation" << endl;
 	cout << "\t\t||------------------------------------------------||" << endl;
 	system("sleep 1");
