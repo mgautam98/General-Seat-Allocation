@@ -53,3 +53,20 @@ class AvailableProgram
 
 map<int, EligibleStudent> EligibleStudents;
 map<int, AvailableProgram> AvailablePrograms;
+
+
+bool alphaString(char *str){
+    int len = strlen(str);
+    for(int i=0; i<len; i++) 
+        if(!isalpha(str[i]))
+            return false;
+    return true;
+}
+
+bool numString(char *str){
+    int len = strlen(str);
+    for(int i=0; i<len; i++) 
+        if(str[i]<'0' && str[i]>'9')
+            return false;
+    return true;
+}
