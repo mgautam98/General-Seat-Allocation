@@ -125,4 +125,11 @@ class Student
 	{
 		return roll;
 	}
+
+	void Display_Preference(){
+		for(int i=0; i<preference.size(); i++){
+			cout<<"\t\t"<<i+1<<".\t"<<preference[i]<<endl;
+		}
+		cout<<endl;
+	}
 };
