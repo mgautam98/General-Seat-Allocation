@@ -25,12 +25,12 @@ class Program : public college
 		cout << "\t\t\tEnter Maximum No. of Seats:";
 		cin >> capacity;
 		system("clear");
-		program_code = college_code*10 + branch_code;
+		program_code = college_code * 10 + branch_code;
 		cout << endl;
 		Capacity = capacity;
-		GEN_seats = Capacity / 2;
-		OBC_seats = Capacity / 4;
-		SC_ST_seats = Capacity / 4;
+		GEN_seats = Capacity / 2 + (Capacity & 1);
+		OBC_seats = (Capacity - GEN_seats) / 2 + ((Capacity - GEN_seats)&1);
+		SC_ST_seats = (Capacity - GEN_seats - OBC_seats);
 	}
 	void Display()
 	{
@@ -44,8 +44,8 @@ class Program : public college
 		cout << "\t Branch:\t" << branch << endl;
 		cout << "\t Seats:\t" << Capacity << endl;
 		cout << "\t Program Code:\t" << program_code << endl;
-		// cout << "\t OBC seats:\t" << OBC_seats << endl;
-		// cout << "\t SC/ST seats:\t" << SC_ST_seats << endl;
+		cout << "\t OBC seats:\t" << OBC_seats << endl;
+		cout << "\t SC/ST seats:\t" << SC_ST_seats << endl;
 	}
 	int getProgramID() { return (program_code); }
 	int Total_seats() { return Capacity; }
