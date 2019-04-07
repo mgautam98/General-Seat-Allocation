@@ -43,7 +43,7 @@ class Student
 {
   public:
 	Name name;
-	vector<int> preference;
+	int preference[20];
 	bool isAlloted;
 	char AllotedProgram[50];
 	int gender;
@@ -56,6 +56,7 @@ class Student
 	Student()
 	{
 		isAlloted = false;
+		for(int i=0; i<20; i++) preference[i] = 0;
 	}
 	void Enter()
 	{
@@ -127,8 +128,9 @@ class Student
 	}
 
 	void Display_Preference(){
-		for(int i=0; i<preference.size(); i++){
-			cout<<"\t\t"<<i+1<<".\t"<<preference[i]<<endl;
+		for(int i=0; i<20; i++){
+			if(preference[i])
+				cout<<"\t\t"<<i+1<<".\t"<<preference[i]<<endl;
 		}
 		cout<<endl;
 	}

@@ -15,14 +15,16 @@ class EligibleStudent
         isAlloted = false;
     }
 
-    EligibleStudent(int roll, int air, int cat, vector<int> pref)
+    EligibleStudent(int roll, int air, int cat, int pref[20])
     {
         rollNo = roll;
         AIR = air;
         category = cat;
         isAlloted = false;
-        preference = pref;
         AllotedPreference = INT_MAX;
+        for(int i=0; i<20; i++){
+            if(pref[i]) preference.push_back(pref[i]);
+        }
     }
 };
 

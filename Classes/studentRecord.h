@@ -127,14 +127,20 @@ class studentRecord
 		cout << "\t\tAdd Preferences (Program Code) in Decreasing Order:" << endl;
 		program.ListAllPrograms();
 		finout.open(fileName.c_str(), ios::in | ios::out);
+		int i;
+
 		while (finout.read((char *)&student, sizeof(student)))
 		{
 			if (student.getEnrollment() == n)
 			{
+				for(i=0; i<20; i++) 
+					if(!student.preference[i])
+						break;
+				
 				do
 				{
 					cin >> Progcode;
-					student.preference.push_back(Progcode);
+					student.preference[i++] = Progcode;
 					cout << "\t\tDo You want to Enter more? (Y/N)" << endl;
 					cin >> addMore;
 					if (addMore == 'n' || addMore == 'N')
