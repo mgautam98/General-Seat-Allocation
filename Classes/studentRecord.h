@@ -19,12 +19,23 @@ class studentRecord
 		in.close();
 	}
 
+	void Display_Preference(long long int n)
+	{
+		in.open(fileName.c_str());
+		while (in.read((char *)&student, sizeof(student)))
+		{
+			if (student.getEnrollment() == n)
+			{
+				student.Display_Preference();
+			}
+		}
+		in.close();
+	}
+
 	void Enter_Student()
 	{
 		out.open(fileName.c_str(), ios::app);
 		student.Enter();
-		// EligibleStudent newStudent(student.roll, student.air, student.category, student.preference);
-        // EligibleStudents.insert({newStudent.AIR, newStudent});
 		out.write((char *)&student, sizeof(student));
 		out.close();
 	}
@@ -115,21 +126,32 @@ class studentRecord
 		int Progcode;
 		cout << "\t\tAdd Preferences (Program Code) in Decreasing Order:" << endl;
 		program.ListAllPrograms();
-		in.open(fileName.c_str());
-		while (in.read((char *)&student, sizeof(student)))
+		finout.open(fileName.c_str(), ios::in | ios::out);
+		int i;
+
+		while (finout.read((char *)&student, sizeof(student)))
 		{
 			if (student.getEnrollment() == n)
 			{
+				for(i=0; i<20; i++) 
+					if(!student.preference[i])
+						break;
+				
 				do
 				{
 					cin >> Progcode;
-					student.preference.push_back(Progcode);
+					student.preference[i++] = Progcode;
 					cout << "\t\tDo You want to Enter more? (Y/N)" << endl;
 					cin >> addMore;
-					if(addMore=='n' || addMore=='N') break;
+					if (addMore == 'n' || addMore == 'N')
+						break;
 				} while (1);
+				long long int pos = -1 * sizeof(student);
+				finout.seekp(pos, ios::cur);
+				finout.write((char *)&student, sizeof(student));
+				break;
 			}
 		}
-		in.close();
+		finout.close();
 	}
 };

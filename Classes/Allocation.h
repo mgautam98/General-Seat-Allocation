@@ -32,10 +32,11 @@ void ReadPrograms()
 //Gen+OBC+SC/ST
 void FirstPass()
 {
-    for (auto i : EligibleStudents)
+    for (auto &i : EligibleStudents)
     {
         for (int j = 0; j < i.second.preference.size(); j++)
         {
+            // cout<<AvailablePrograms[i.second.preference[j]].GenCap<<endl;
             if (AvailablePrograms[i.second.preference[j]].GenCap > 0)
             {
                 AvailablePrograms[i.second.preference[j]].GenCap--;
@@ -50,9 +51,9 @@ void FirstPass()
 
 void SecondPass()
 {
-    for (auto i : EligibleStudents)
+    for (auto &i : EligibleStudents)
     {
-        if (strcmp(i.second.category, "OBC") == 0)
+        if (i.second.category== 2)
         {
             for (int j = 0; j < i.second.preference.size(); j++)
             {
@@ -72,7 +73,7 @@ void SecondPass()
                 }
             }
         }
-        else if (strcmp(i.second.category, "SC/ST") == 0)
+        else if (i.second.category== 3)
         {
             for (int j = 0; j < i.second.preference.size(); j++)
             {
@@ -97,7 +98,7 @@ void SecondPass()
 
 void ThirdPass()
 {
-    for (auto i : EligibleStudents)
+    for (auto &i : EligibleStudents)
     {
         for (int j = 0; j < i.second.preference.size(); j++)
         {
@@ -105,11 +106,11 @@ void ThirdPass()
             {
                 if (i.second.isAlloted)
                 {
-                    if (strcmp(i.second.category, "GEN") == 0)
+                    if (i.second.category==1)
                     {
                         AvailablePrograms[i.second.AllotedCode].GenCap++;
                     }
-                    else if (strcmp(i.second.category, "OBC") == 0)
+                    else if (i.second.category==2)
                     {
                         AvailablePrograms[i.second.AllotedCode].ObcCap++;
                     }
@@ -130,7 +131,8 @@ void ThirdPass()
 
 void DisplayAllocation(){
     for(auto i:EligibleStudents){
-        cout << "\t\t Student Roll No. : " << i.second.rollNo<< "   Alloted Program : "<<i.second.AllotedCode<<endl;
+        if(i.second.isAlloted)
+            cout << "\t\t Student Roll No. : " << i.second.rollNo<< "   Alloted Program : "<<i.second.AllotedCode<<endl;
     }
 }
 
@@ -138,6 +140,9 @@ void DisplayAllocation(){
 void Allocate()
 {
     ReadStudents();
+    // for(auto i: EligibleStudents){
+    //     cout<<i.second.AIR<<endl;
+    // }
     ReadPrograms();
     FirstPass();
     SecondPass();

@@ -43,20 +43,20 @@ class Student
 {
   public:
 	Name name;
-	vector<int> preference;
+	int preference[20];
 	bool isAlloted;
 	char AllotedProgram[50];
-	char gender;
+	int gender;
 	char email[50];
 	DOB dob;
 	char state[20];
-	char category[20];
+	int category;
 	int air;
-	// string categoryrank;
 	int roll;
 	Student()
 	{
 		isAlloted = false;
+		for(int i=0; i<20; i++) preference[i] = 0;
 	}
 	void Enter()
 	{
@@ -71,16 +71,13 @@ class Student
 		cout << "\t\tState of Eligibility:";
 		cin >> state;
 		system("clear");
-		cout << "\t\tCategory:";
+		cout << "\t\tCategory - 1. GEN / 2. OBC / 3. SCST\t:";
 		cin >> category;
 		system("clear");
 		cout << "\t\tAIR:";
 		cin >> air;
-		// system("clear");
-		// cout << "\t\tCategory Rank:";
-		// cin >> categoryrank;
 		system("clear");
-		cout << "\t\tEnter Gender:";
+		cout << "\t\tEnter Gender - 1. MALE / 2. FEMALE\t:";
 		cin >> gender;
 		system("clear");
 		cout << "\t\tDOB:\n";
@@ -93,25 +90,35 @@ class Student
 	}
 	void Display()
 	{
-		cout<<"\n\n\t\t System is fetching data.....wait a moment!\n\n";
-        system("sleep 2");
-        system("clear");
-        cout<<"\n\n\n\n\n\n\n\n\n\n\n";
+		cout << "\n\n\t\t System is fetching data.....wait a moment!\n\n";
+		system("sleep 1");
+		system("clear");
+		cout << "\n\n\n\n\n\n\n\n\n\n\n";
 		cout << "\t\t\t     CANDIDATE'S DETAILS" << endl;
 		cout << "\t||-----------------------------------------------------------||" << endl;
 		cout << "\t\t   Candidate Name:\t";
 		name.showName();
-		cout << "\t\t" << endl<< endl;
+		cout << "\t\t" << endl
+			 << endl;
 		cout << "\t\t   JEE ROLL Number:\t" << roll << endl;
 		cout << "\t\t   State of Eligibility:\t" << state << endl;
-		cout << "\t\t   Category:\t" << category << endl;
+		cout << "\t\t   Category:\t";
+		if (category == 1)
+			cout << "GEN" << endl;
+		else if (category == 2)
+			cout << "OBC" << endl;
+		else
+			cout << "SCST" << endl;
 		cout << "\t\t   AIR:\t" << air << "\t";
-		// cout << "  Category Rank:\t" << categoryrank << endl << endl;
 		cout << "\t\t   Other Details: " << endl;
 		cout << "\t\t\t   Dob:\t\t\t";
 		dob.showuDateInt();
 		cout << endl;
-		cout << "\t\t\t   Gender:\t\t" << gender << endl;
+		cout << "\t\t\t   Gender:\t\t";
+		if (gender == 1)
+			cout << "MALE" << endl;
+		else
+			cout << "FEMALE" << endl;
 		cout << "\t\t\t   Email:\t\t" << email << endl;
 		cout << "\t||-----------------------------------------------------------||" << endl;
 	}
@@ -119,5 +126,12 @@ class Student
 	{
 		return roll;
 	}
-	
+
+	void Display_Preference(){
+		for(int i=0; i<20; i++){
+			if(preference[i])
+				cout<<"\t\t"<<i+1<<".\t"<<preference[i]<<endl;
+		}
+		cout<<endl;
+	}
 };

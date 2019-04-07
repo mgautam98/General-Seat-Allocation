@@ -4,7 +4,7 @@ class EligibleStudent
   public:
     int rollNo;
     int AIR;
-    string category;
+    int category;
     bool isAlloted;
     int AllotedCode;
     int AllotedPreference;
@@ -15,13 +15,16 @@ class EligibleStudent
         isAlloted = false;
     }
 
-    EligibleStudent(int roll, int air, string cat, vector<int> pref) : preference(pref)
+    EligibleStudent(int roll, int air, int cat, int pref[20])
     {
-        rollNo = rollNo;
+        rollNo = roll;
         AIR = air;
         category = cat;
         isAlloted = false;
         AllotedPreference = INT_MAX;
+        for(int i=0; i<20; i++){
+            if(pref[i]) preference.push_back(pref[i]);
+        }
     }
 };
 
@@ -53,3 +56,32 @@ class AvailableProgram
 
 map<int, EligibleStudent> EligibleStudents;
 map<int, AvailableProgram> AvailablePrograms;
+
+
+bool alphaString(char *str){
+    int len = strlen(str);
+    for(int i=0; i<len; i++) 
+        if(!isalpha(str[i]))
+            return false;
+    return true;
+}
+
+bool numString(char *str){
+    int len = strlen(str);
+    for(int i=0; i<len; i++) 
+        if(!isdigit(str[i]))
+            return false;
+    return true;
+}
+
+bool isValidCategory(int cat){
+    if(cat!=1 || cat!=2 || cat!=3) 
+        return false;
+    return true;
+}
+
+bool isValidGender(int gender){
+    if(gender!=1 || gender!=2) 
+        return false;
+    return true;
+}
