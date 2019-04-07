@@ -32,10 +32,11 @@ void ReadPrograms()
 //Gen+OBC+SC/ST
 void FirstPass()
 {
-    for (auto i : EligibleStudents)
+    for (auto &i : EligibleStudents)
     {
         for (int j = 0; j < i.second.preference.size(); j++)
         {
+            // cout<<AvailablePrograms[i.second.preference[j]].GenCap<<endl;
             if (AvailablePrograms[i.second.preference[j]].GenCap > 0)
             {
                 AvailablePrograms[i.second.preference[j]].GenCap--;
@@ -50,7 +51,7 @@ void FirstPass()
 
 void SecondPass()
 {
-    for (auto i : EligibleStudents)
+    for (auto &i : EligibleStudents)
     {
         if (i.second.category== 2)
         {
@@ -97,7 +98,7 @@ void SecondPass()
 
 void ThirdPass()
 {
-    for (auto i : EligibleStudents)
+    for (auto &i : EligibleStudents)
     {
         for (int j = 0; j < i.second.preference.size(); j++)
         {
@@ -130,7 +131,8 @@ void ThirdPass()
 
 void DisplayAllocation(){
     for(auto i:EligibleStudents){
-        cout << "\t\t Student Roll No. : " << i.second.rollNo<< "   Alloted Program : "<<i.second.AllotedCode<<endl;
+        if(i.second.isAlloted)
+            cout << "\t\t Student Roll No. : " << i.second.rollNo<< "   Alloted Program : "<<i.second.AllotedCode<<endl;
     }
 }
 
@@ -138,13 +140,12 @@ void DisplayAllocation(){
 void Allocate()
 {
     ReadStudents();
-    for(auto i:EligibleStudents){
-        cout<<i.second.preference.size()<<endl;
-    }
+    // for(auto i: EligibleStudents){
+    //     cout<<i.second.AIR<<endl;
+    // }
     ReadPrograms();
-    // FirstPass();
-
-    // SecondPass();
-    // ThirdPass();
-    // DisplayAllocation();
+    FirstPass();
+    SecondPass();
+    ThirdPass();
+    DisplayAllocation();
 }
