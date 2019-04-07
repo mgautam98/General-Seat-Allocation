@@ -65,26 +65,51 @@ class Student
 		cout << "\t\tEnter JEE Roll Number:";
 		cin >> roll;
 		system("clear");
-		cout << "\t\tCandidate Name:" << endl;
-		name.getName();
+		na:
+			cout << "\t\tCandidate Name:" << endl;
+			name.getName();
+			if(!alphaString(name.fiNam) || !alphaString(name.lName)){
+				cout << "\nError: Please Enter char name values"<<endl;
+				goto na;
+			}
 		system("clear");
-		cout << "\t\tState of Eligibility:";
-		cin >> state;
+		st:
+			cout << "\t\tState of Eligibility:";
+			cin >> state;
+			if(!alphaString(state)){
+				cout << "\nError: Please Enter char values"<<endl;
+				goto st;
+			}
 		system("clear");
-		cout << "\t\tCategory - 1. GEN / 2. OBC / 3. SCST\t:";
-		cin >> category;
+		cat:
+			cout << "\t\tCategory - 1. GEN / 2. OBC / 3. SCST\t:";
+			cin >> category;
+			if(isValidCategory(category)){
+				cout << "\nError: Please Enter only 1. GEN / 2. OBC / 3. SCST"<<endl;
+				goto cat;
+			}
 		system("clear");
 		cout << "\t\tAIR:";
 		cin >> air;
 		system("clear");
-		cout << "\t\tEnter Gender - 1. MALE / 2. FEMALE\t:";
-		cin >> gender;
+		ge:
+			cout << "\t\tEnter Gender - 1. MALE / 2. FEMALE\t:";
+			cin >> gender;
+			if(isValidGender(gender)){
+				cout << "\nError: Please Enter only 1. MALE / 2. FEMALE"<<endl;
+				goto ge;
+			}
 		system("clear");
 		cout << "\t\tDOB:\n";
 		dob.getuDate();
 		system("clear");
-		cout << "\t\tEnter Email:";
-		cin >> email;
+		em:
+			cout << "\t\tEnter Email:";
+			cin >> email;
+			if(!alphaString(email)){
+				cout << "\nError: Please Enter correct Email"<<endl;
+				goto em;
+			}
 		system("clear");
 		cout << "\t||---------------------------------------------------------||" << endl;
 	}

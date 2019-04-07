@@ -10,15 +10,25 @@ class Program : public college
 
 	void Enter()
 	{
-		cout << "\t\t\tEnter College Name:";
-		cin >> college_name;
-		system("clear");
+		CN:
+			cout << "\t\t\tEnter College Name:";
+			cin >> college_name;
+			system("clear");
+			if(!alphaString(college_name)){
+					cout << "\nError: Please Enter char values"<<endl;
+					goto CN;
+				}
 		cout << "\t\t\tEnter College Code:";
 		cin >> college_code;
 		system("clear");
-		cout << "\t\t\tEnter Branch:";
-		cin >> branch;
-		system("clear");
+		BR:
+			cout << "\t\t\tEnter Branch:";
+			cin >> branch;
+			system("clear");
+			if(!alphaString(branch)){
+					cout << "\nError: Please Enter char values"<<endl;
+					goto BR;
+				}
 		cout << "\t\t\tEnter Branch code:";
 		cin >> branch_code;
 		system("clear");
