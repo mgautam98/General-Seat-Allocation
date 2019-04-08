@@ -75,13 +75,13 @@ bool numString(char *str){
 }
 
 bool isValidCategory(int cat){
-    if(cat!=1 || cat!=2 || cat!=3) 
-        return false;
-    return true;
+    if(cat==1 || cat==2 || cat==3) 
+        return true;
+    return false;
 }
 
 bool isValidGender(int gender){
-    if(gender!=1 || gender!=2) 
-        return false;
-    return true;
+    if(gender==1 || gender==2) 
+        return true;
+    return false;
 }
