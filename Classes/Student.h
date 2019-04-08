@@ -62,7 +62,7 @@ class Student
 	{
 		cout << "\n\t\t\t          CANDIDATE'S DETAILS" << endl;
 		cout << "\t||---------------------------------------------------------||" << endl;
-		cout << "\t\tEnter JEE Roll Number:";
+		cout << "\t\tEnter JEE Roll Number (0 to 2,147,483,647):";
 		cin >> roll;
 		system("clear");
 		na:
@@ -84,7 +84,7 @@ class Student
 		cat:
 			cout << "\t\tCategory - 1. GEN / 2. OBC / 3. SCST\t:";
 			cin >> category;
-			if(isValidCategory(category)){
+			if(!isValidCategory(category)){
 				cout << "\nError: Please Enter only 1. GEN / 2. OBC / 3. SCST"<<endl;
 				goto cat;
 			}
@@ -95,7 +95,7 @@ class Student
 		ge:
 			cout << "\t\tEnter Gender - 1. MALE / 2. FEMALE\t:";
 			cin >> gender;
-			if(isValidGender(gender)){
+			if(!isValidGender(gender)){
 				cout << "\nError: Please Enter only 1. MALE / 2. FEMALE"<<endl;
 				goto ge;
 			}
