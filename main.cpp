@@ -17,7 +17,7 @@ int main(){
 	system("sleep 1");
 	system("clear");
 	cout << "\n\n\n\n\n\n\n\n\n\n\n";
-	cout << "\t\t\t          Jee Seat Allocation" << endl;
+	cout << "\t\t\t          General Seat Allocation" << endl;
 	cout << "\t\t||------------------------------------------------||" << endl;
 	system("sleep 1");
 	cout << "\t\t\t          Made by:" << endl;
